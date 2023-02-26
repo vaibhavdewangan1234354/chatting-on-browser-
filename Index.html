@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Link Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+      input[type=text] {
+        padding: 10px;
+        font-size: 24px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        width: 80%;
+        max-width: 600px;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 24px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      .link-container {
+        margin-top: 50px;
+        display: none;
+      }
+      .link-container p {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .link-container input[type=text] {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        width: 80%;
+        max-width: 600px;
+      }
+      .link-container button {
+        font-size: 20px;
+        padding: 14px 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>VD Technical Gaming
+      Custom Link Generator</h1>
+    <form>
+      <input type="text" placeholder="Enter your custom text">
+      <button type="button">Generate Link</button>
+    </form>
+    <div class="link-container">
+      <p>Copy and share your link:</p>
+      <input type="text" readonly>
+      <button type="button">Continue to Chat</button>
+    </div>
+    <script>
+      const generateBtn = document.querySelector('button');
+      const linkContainer = document.querySelector('.link-container');
+      const linkInput = document.querySelector('.link-container input[type=text]');
+      const continueBtn = document.querySelector('.link-container button');
+      const linkText = "https://hack.chat/?(Vaibhav)";
+
+      generateBtn.addEventListener('click', () => {
+        const customText = document.querySelector('input[type=text]').value;
+        const generatedLink = linkText.replace('Vaibhav', customText);
+
+        linkInput.value = generatedLink;
+        linkContainer.style.display = 'block';
+      });
+
+      continueBtn.addEventListener('click', () => {
+        const redirectLink = linkInput.value;
+        window.open(redirectLink, '_self');
+      });
+    </script>
+  </body>
+</html>
+
